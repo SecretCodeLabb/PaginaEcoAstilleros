@@ -1,0 +1,645 @@
+:root {
+    --color-primary: #2d5a27; /* Verde bosque */
+    --color-primary-dark: #1f3f1b;
+    --color-primary-light: #eaf3ea; /* Verde muy claro para fondos */
+    --color-secondary: #8b5a2b; /* Tierra */
+    --color-secondary-light: #a67c52;
+    --color-secondary-pale: #f2ede7; /* Tono tierra súper claro para variar fondos */
+    --color-bg-light: #fdfbf7; /* Blanco crema */
+    --color-text: #333333;
+    --color-text-muted: #666666;
+    --color-white: #ffffff;
+    --transition-speed: 0.3s;
+}
+
+/* Reset Basis */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--color-white);
+    color: var(--color-text);
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    color: var(--color-primary-dark);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color var(--transition-speed);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Utilities */
+.text-center {
+    text-align: center;
+}
+
+.bg-light {
+    background-color: var(--color-bg-light);
+}
+
+.bg-primary-light {
+    background-color: var(--color-primary-light);
+}
+
+.bg-secondary-pale {
+    background-color: var(--color-secondary-pale);
+}
+
+/* Animations */
+.fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.mt-2 {
+    margin-top: 2rem;
+}
+
+.section {
+    padding: 5rem 0;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    margin-bottom: 3rem;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-weight: 500;
+    text-align: center;
+    cursor: pointer;
+    transition: all var(--transition-speed);
+    border: 2px solid transparent;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(45, 90, 39, 0.3);
+}
+
+.btn-outline {
+    background-color: transparent;
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.btn-outline:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: var(--color-white);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    z-index: 1000;
+    transition: background-color var(--transition-speed);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    height: 60px;
+    width: auto;
+    object-fit: contain;
+}
+
+.nav-menu ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-link {
+    font-weight: 500;
+    color: var(--color-text);
+}
+
+.nav-link:hover {
+    color: var(--color-primary);
+}
+
+/* Hamburger */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-primary-dark);
+    transition: all 0.3s;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: url('../resources/portadapagina.png') no-repeat center center/cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 80px; /* offset for navbar */
+    height: calc(100vh - 80px);
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(31, 63, 27, 0.4);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: var(--color-white);
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    color: var(--color-white);
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+/* Finca Section */
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text p {
+    margin-bottom: 1rem;
+}
+
+.features-list {
+    list-style: none;
+    margin-top: 1.5rem;
+}
+
+.features-list li {
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+}
+
+.features-list i {
+    color: var(--color-secondary);
+    font-size: 1.2rem;
+}
+
+.about-image {
+    flex: 1;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Restaurante Section */
+.restaurante-content {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.restaurante-image {
+    flex: 1;
+}
+
+.restaurante-image img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.restaurante-info {
+    flex: 1;
+}
+
+.food-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.highlight {
+    display: flex;
+    flex-direction: column;
+}
+
+.highlight i {
+    color: var(--color-secondary);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.restaurante-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Rutas Section */
+.rutas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.ruta-card {
+    background: var(--color-white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+/* Variar el fondo de las tarjetas para que no sean iguales */
+.ruta-card:nth-child(even) {
+    background: var(--color-bg-light);
+}
+.ruta-card:nth-child(3n) {
+    background: var(--color-primary-light);
+}
+
+.ruta-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(45, 90, 39, 0.15);
+}
+
+.ruta-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.ruta-body {
+    padding: 1.5rem;
+}
+
+.ruta-desc {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    margin: 0.5rem 0 1rem;
+    min-height: 45px;
+}
+
+.ruta-price {
+    font-weight: 600;
+    color: var(--color-primary);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Hospedaje Banner */
+.hospedaje-banner {
+    background: url('../resources/hospedaje-banner.jpg') no-repeat center center/cover;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    padding: 4rem 2rem;
+    color: var(--color-white);
+}
+
+.hospedaje-banner::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(45, 90, 39, 0.7);
+}
+
+.hospedaje-text {
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.hospedaje-text h3 {
+    color: var(--color-white);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.price-badge {
+    background: var(--color-secondary);
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    margin: 1.5rem 0;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--color-primary-dark);
+    color: var(--color-bg-light);
+    padding: 4rem 0 2rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.footer-col h4 {
+    color: var(--color-white);
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.logo-footer {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-white);
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.contact-info {
+    list-style: none;
+}
+
+.contact-info li {
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 10px;
+}
+
+.contact-info i {
+    color: var(--color-secondary-light);
+    margin-top: 5px;
+}
+
+.quick-links {
+    list-style: none;
+}
+
+.quick-links li {
+    margin-bottom: 0.8rem;
+}
+
+.quick-links a:hover {
+    color: var(--color-secondary-light);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.7);
+}
+
+/* Floating WhatsApp */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25d366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    z-index: 100;
+    transition: transform 0.3s;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 80px;
+        flex-direction: column;
+        background-color: var(--color-white);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.05);
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .nav-menu ul {
+        flex-direction: column;
+        padding: 2rem 0;
+    }
+    
+    .hamburger {
+        display: flex;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .about-container, .restaurante-content {
+        flex-direction: column;
+    }
+
+    .restaurante-image {
+        order: -1;
+    }
+
+    .restaurante-actions {
+        flex-direction: column;
+    }
+    
+    .rutas-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ----------- Subpages Design ----------- */
+.subpage-header {
+    background-color: var(--color-primary-dark);
+    color: var(--color-white);
+    padding: 8rem 0 4rem;
+    text-align: center;
+}
+
+.subpage-header h1 {
+    color: var(--color-white);
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.route-content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    margin: 4rem 0;
+}
+
+.route-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.route-gallery img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.route-gallery img.main-img {
+    grid-column: 1 / -1;
+    height: 400px;
+}
+
+.route-sidebar {
+    background-color: var(--color-bg-light);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    height: fit-content;
+}
+
+.route-sidebar h3 {
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--color-primary);
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+.inclusion-list {
+    list-style: none;
+    margin-bottom: 2rem;
+}
+
+.inclusion-list li {
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.inclusion-list i {
+    color: var(--color-secondary);
+}
+
+.price-box {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    border: 1px solid #eee;
+}
+
+.price-box .amount {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    font-family: 'Playfair Display', serif;
+}
+
+.price-box small {
+    display: block;
+    color: var(--color-text-muted);
+}
+
+@media (max-width: 992px) {
+    .route-content-grid {
+        grid-template-columns: 1fr;
+    }
+}
