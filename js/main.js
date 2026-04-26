@@ -44,4 +44,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }, observerOptions);
 
     animatedElements.forEach(el => scrollObserver.observe(el));
+
+    // Restaurante Carousel
+    const carouselTrack = document.querySelector('.carousel-track');
+    if (carouselTrack) {
+        const slides = carouselTrack.querySelectorAll('img');
+        let currentIndex = 0;
+        
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % slides.length;
+            carouselTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }, 3000); // Cambia de imagen cada 3 segundos
+    }
 });
